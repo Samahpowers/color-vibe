@@ -35,7 +35,7 @@ document.getElementById('userForm').addEventListener('submit', async function(e)
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
-            
+            const currentUser = document.getElementById("current-user")
             const data = { name, email, phone };
             console.log(data)
             try {
@@ -49,6 +49,7 @@ document.getElementById('userForm').addEventListener('submit', async function(e)
 
                 const user = await response.json();
                 console.log('User created:', user);
+              currentUser.innerText= user.name
             } catch (error) {
                 console.error('Error creating user:', error.message);
             }
